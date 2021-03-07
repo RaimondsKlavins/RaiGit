@@ -75,7 +75,7 @@ namespace TyprConversions2
             ResTexBox.Text = myStringBuilder.ToString();
         }
 
-        #region MyRegion
+        #region Clicks
 
         private void ConvertButton_Click(object sender, RoutedEventArgs e)
         {
@@ -87,12 +87,13 @@ namespace TyprConversions2
             StrBuilder();
         }
 
+        #endregion
+
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        #endregion
 
     }
 }

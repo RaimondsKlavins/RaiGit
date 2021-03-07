@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TyprConversions2"
-        mc:Ignorable="d" Background="Bisque"
+        mc:Ignorable="d" Background="Goldenrod"
         Title="MainWindow" Height="450" Width="800">
     <Grid Height="419" VerticalAlignment="Top">
         <Grid.ColumnDefinitions>
@@ -19,18 +19,17 @@
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
 
-        <Label Content="Input" Grid.Row="1"  Grid.Column="0" VerticalAlignment="Center"  HorizontalAlignment="Right"/>
+        <Label Content="Input:" Grid.Row="1"  Grid.Column="0" VerticalAlignment="Center"  HorizontalAlignment="Right"/>
 
         <TextBox  Name="InputTexBox" Grid.Row="1"  Grid.Column="1" VerticalAlignment="Center"  />
 
         <TextBox Name="ResTexBox" Grid.Row="2"  Grid.Column="1" />
 
-        <Button Name="ConvertButton" Content="Convert"  Grid.Row="1"  Grid.Column="2" 
-              Width="100"  Height="24" Click="ConvertButton_Click" />
+        <Button Name="ConvertButton" Content="Convert"  Grid.Row="1"  Grid.Column="2" Width="100"  Height="24" Click="ConvertButton_Click" />
 
-
-        <Button Name="StrBuilderButton" Content="String Builder"  Grid.Row="2"  Grid.Column="2" 
-              Width="100"  Height="24" Click="StrBuilderButton_Click" />
+        <StackPanel Grid.Row="2"  Grid.Column="2" VerticalAlignment="Center">
+            <Button Name="StrBuilderButton" Content="String Builder"  Grid.Row="2"  Grid.Column="2" Width="100"  Height="24" Click="StrBuilderButton_Click" />
+        </StackPanel>
 
     </Grid>
 </Window>
