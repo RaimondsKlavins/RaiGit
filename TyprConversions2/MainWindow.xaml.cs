@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Serilog;
+using Serilog.Sinks.File;
+using System.IO;
 
 namespace TyprConversions2
 {
@@ -49,7 +52,7 @@ namespace TyprConversions2
 
             // TryParse
             int res2;
-            bool ok = int.TryParse(inputStr,out res2);
+            bool ok = int.TryParse(inputStr, out res2);
 
             //if (ok)
             //{
@@ -74,7 +77,30 @@ namespace TyprConversions2
 
             ResTexBox.Text = myStringBuilder.ToString();
         }
+        private void RaiLog()
+        {
+            //string[] logLines = File.ReadAllLines(@"Logs\Log.txt");
+            string[] logLines = File.ReadAllLines(@"c:\Logs\Log.txt");
+            int lineCount = logLines.Length;
+            //lineCount == 0 ? lineCount = 1;
+            //if (lineCount == 0) { lineCount = 1; };
 
+            var log = new LoggerConfiguration()
+                .WriteTo.File(@"Logs\Log.txt", buffered: true, flushToDiskInterval: TimeSpan.FromMilliseconds(1000))
+                .CreateLogger();
+
+            Log.Logger = log;
+
+            Log.Information("Log Line " + lineCount);
+            Log.CloseAndFlush();
+
+            ResTexBox.Text = "";
+            foreach (string line in logLines)
+            {
+                ResTexBox.Text += line;
+                ResTexBox.Text += "\r\n";
+            }
+        }
         #region Clicks
 
         private void ConvertButton_Click(object sender, RoutedEventArgs e)
@@ -87,7 +113,11 @@ namespace TyprConversions2
             StrBuilder();
         }
 
-        #endregion
+        private void LogButton_Click(object sender, RoutedEventArgs e)
+        {
+            RaiLog();
+        }
+    #endregion
 
         public MainWindow()
         {

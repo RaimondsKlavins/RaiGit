@@ -28,9 +28,13 @@
         <Button Name="ConvertButton" Content="Convert"  Grid.Row="1"  Grid.Column="2" Width="100"  Height="24" Click="ConvertButton_Click" />
 
         <Image Grid.Column="0" Grid.Row="2" Source="Resources\win98unknown.gif" Margin="15"></Image>
-        
+
         <StackPanel Grid.Row="2"  Grid.Column="2" VerticalAlignment="Center">
+            
+            <Button Name="LogButton" Content="Log"  Grid.Row="2"  Grid.Column="2" Width="100"  Height="24" Click="LogButton_Click"/>
+            
             <Button Name="StrBuilderButton" Content="String Builder"  Grid.Row="2"  Grid.Column="2" Width="100"  Height="24" Click="StrBuilderButton_Click" />
+            
         </StackPanel>
 
     </Grid>
