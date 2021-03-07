@@ -22,7 +22,6 @@
         <Label Content="Input:" Grid.Row="1"  Grid.Column="0" VerticalAlignment="Center"  HorizontalAlignment="Right"/>
 
         <TextBox  Name="InputTexBox" Grid.Row="1"  Grid.Column="1" VerticalAlignment="Center"  />
-
         <TextBox Name="ResTexBox" Grid.Row="2"  Grid.Column="1" />
 
         <Button Name="ConvertButton" Content="Convert"  Grid.Row="1"  Grid.Column="2" Width="100"  Height="24" Click="ConvertButton_Click" />
@@ -30,11 +29,10 @@
         <Image Grid.Column="0" Grid.Row="2" Source="Resources\win98unknown.gif" Margin="15"></Image>
 
         <StackPanel Grid.Row="2"  Grid.Column="2" VerticalAlignment="Center">
-            
-            <Button Name="LogButton" Content="Log"  Grid.Row="2"  Grid.Column="2" Width="100"  Height="24" Click="LogButton_Click"/>
-            
-            <Button Name="StrBuilderButton" Content="String Builder"  Grid.Row="2"  Grid.Column="2" Width="100"  Height="24" Click="StrBuilderButton_Click" />
-            
+            <Button Name="StrBuilderButton" Content="String Builder" Width="100"  Height="24" Click="StrBuilderButton_Click" />
+            <Button Name="LogButton" Content="Log" Width="100"  Height="24" Click="LogButton_Click"/>
+            <Button Name="LINQButton1" Content="LINQ 1"  Width="100"  Height="24" Click="LINQ1Button_Click"/>
+            <Button Name="LINQButton2" Content="LINQ 2"  Width="100"  Height="24" Click="LINQ2Button_Click"/>
         </StackPanel>
 
     </Grid>

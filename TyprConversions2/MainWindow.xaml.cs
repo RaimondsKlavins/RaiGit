@@ -21,7 +21,10 @@ namespace TyprConversions2
 
     public partial class MainWindow : Window
     {
+        #region Variables
         StringBuilder myStringBuilder = new StringBuilder();
+        int[] numList = { 1, 2, 3, 10, 20, 30, 40, 100, 1000 };
+        #endregion
 
         private void Convert()
         {
@@ -101,8 +104,59 @@ namespace TyprConversions2
                 ResTexBox.Text += "\r\n";
             }
         }
-        #region Clicks
 
+        private void RaiLINQ1()
+        {
+            int inputInt = 0;
+
+            var inputText = InputTexBox.Text;
+            try
+            {
+                inputInt = int.Parse(inputText);
+            }
+            catch (Exception ex)
+            {
+                ResTexBox.Text = "ERROR : " + ex.Message;
+            }
+
+            var res =
+                from num in numList
+                where num > inputInt
+                select num;
+
+            ResTexBox.Text = "";
+            foreach (int num in res)
+            {
+                ResTexBox.Text += num;
+                ResTexBox.Text += "\r\n";
+            }
+        }
+
+        private void RaiLINQ2()
+        {
+            int inputInt = 0;
+
+            var inputText = InputTexBox.Text;
+            try
+            {
+                inputInt = int.Parse(inputText);
+            }
+            catch (Exception ex)
+            {
+                ResTexBox.Text = "ERROR : " + ex.Message;
+            }
+
+            var res = numList.Where(n => n > inputInt);
+
+            ResTexBox.Text = "";
+            foreach (int num in res)
+            {
+                ResTexBox.Text += num;
+                ResTexBox.Text += "\r\n";
+            }
+        }
+
+        #region Clicks
         private void ConvertButton_Click(object sender, RoutedEventArgs e)
         {
             Convert();
@@ -117,7 +171,17 @@ namespace TyprConversions2
         {
             RaiLog();
         }
-    #endregion
+
+        private void LINQ1Button_Click(object sender, RoutedEventArgs e)
+        {
+            RaiLINQ1();
+        }
+
+        private void LINQ2Button_Click(object sender, RoutedEventArgs e)
+        {
+            RaiLINQ2();
+        }
+        #endregion
 
         public MainWindow()
         {
