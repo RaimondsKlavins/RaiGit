@@ -26,7 +26,15 @@
 
         <Button Name="ConvertButton" Content="Convert"  Grid.Row="1"  Grid.Column="2" Width="100"  Height="24" Click="ConvertButton_Click" />
 
-        <Image Grid.Column="0" Grid.Row="2" Source="Resources\win98unknown.gif" Margin="15"></Image>
+        <ScrollViewer Grid.Row="2"  Grid.Column="0" VerticalScrollBarVisibility="Auto">
+            <StackPanel  VerticalAlignment="Center">
+                <Image Source="Resources/win98.gif" Margin="15,0"></Image>
+                <Image Source="Resources/win98unknown.gif" Margin="15,0"></Image>
+                <Image Source="Resources\win98icon.gif" Margin="15,0"></Image>
+                <Image Source="Resources\win98icon2.gif" Margin="15,0"></Image>
+                <Image Source="Resources\win98icon3.gif" Margin="15,0"></Image>
+            </StackPanel>
+        </ScrollViewer>
 
         <StackPanel Grid.Row="2"  Grid.Column="2" VerticalAlignment="Center">
             <Button Name="StrBuilderButton" Content="String Builder" Width="100"  Height="24" Click="StrBuilderButton_Click" />

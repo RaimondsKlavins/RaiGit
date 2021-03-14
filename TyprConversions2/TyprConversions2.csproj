@@ -107,5 +107,15 @@
   <ItemGroup>
     <Folder Include="Logs\" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\win98icon.gif" />
+    <Resource Include="Resources\win98icon2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\win98icon3.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\win98.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
