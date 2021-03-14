@@ -33,6 +33,7 @@
             <Button Name="LogButton" Content="Log" Width="100"  Height="24" Click="LogButton_Click"/>
             <Button Name="LINQButton1" Content="LINQ 1"  Width="100"  Height="24" Click="LINQ1Button_Click"/>
             <Button Name="LINQButton2" Content="LINQ 2"  Width="100"  Height="24" Click="LINQ2Button_Click"/>
+            <Button Name="LINQButton3" Content="LINQ 3"  Width="100"  Height="24" Click="LINQ3Button_Click"/>
         </StackPanel>
 
     </Grid>

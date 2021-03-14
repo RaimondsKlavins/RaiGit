@@ -24,6 +24,7 @@ namespace TyprConversions2
         #region Variables
         StringBuilder myStringBuilder = new StringBuilder();
         int[] numList = { 1, 2, 3, 10, 20, 30, 40, 100, 1000 };
+        int[] numList2 = { 3, 5, 7, 4, 34, 54, 345, 3478, 234 };
         #endregion
 
         private void Convert()
@@ -156,6 +157,30 @@ namespace TyprConversions2
             }
         }
 
+        private void RaiLINQ3()
+        {
+            int inputInt = 0;
+
+            var inputText = InputTexBox.Text;
+            try
+            {
+                inputInt = int.Parse(inputText);
+            }
+            catch (Exception ex)
+            {
+                ResTexBox.Text = "ERROR : " + ex.Message;
+            }
+
+            var res = numList.Where(n => (n * 2) > inputInt);
+
+            ResTexBox.Text = "";
+            foreach (int num in res)
+            {
+                ResTexBox.Text += num;
+                ResTexBox.Text += "\r\n";
+            }
+        }
+
         #region Clicks
         private void ConvertButton_Click(object sender, RoutedEventArgs e)
         {
@@ -180,6 +205,11 @@ namespace TyprConversions2
         private void LINQ2Button_Click(object sender, RoutedEventArgs e)
         {
             RaiLINQ2();
+        }
+
+        private void LINQ3Button_Click(object sender, RoutedEventArgs e)
+        {
+            RaiLINQ3();
         }
         #endregion
 
