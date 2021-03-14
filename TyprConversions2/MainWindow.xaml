@@ -27,12 +27,12 @@
         <Button Name="ConvertButton" Content="Convert"  Grid.Row="1"  Grid.Column="2" Width="100"  Height="24" Click="ConvertButton_Click" />
 
         <ScrollViewer Grid.Row="2"  Grid.Column="0" VerticalScrollBarVisibility="Auto">
-            <StackPanel  VerticalAlignment="Center">
-                <Image Source="Resources/win98.gif" Margin="15,0"></Image>
-                <Image Source="Resources/win98unknown.gif" Margin="15,0"></Image>
-                <Image Source="Resources\win98icon.gif" Margin="15,0"></Image>
-                <Image Source="Resources\win98icon2.gif" Margin="15,0"></Image>
-                <Image Source="Resources\win98icon3.gif" Margin="15,0"></Image>
+            <StackPanel VerticalAlignment="Center">
+                <Image Name="Icon1" Source="Resources/win98.gif" Margin="10,0"></Image>
+                <Image Name="Icon2" Source="Resources\win98icon0.gif" Margin="10,0"></Image>
+                <Image Name="Icon3" Source="Resources\win98icon1.gif" Margin="10,0"></Image>
+                <Image Name="Icon4" Source="Resources\win98icon2.gif" Margin="10,0"></Image>
+                <Image Name="Icon5" Source="Resources\win98icon3.gif" Margin="10,0"></Image>
             </StackPanel>
         </ScrollViewer>
 

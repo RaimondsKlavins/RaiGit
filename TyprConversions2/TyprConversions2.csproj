@@ -102,13 +102,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\win98unknown.gif" />
+    <Resource Include="Resources\win98icon0.gif" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Logs\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\win98icon.gif" />
+    <Resource Include="Resources\win98icon1.gif" />
     <Resource Include="Resources\win98icon2.gif" />
   </ItemGroup>
   <ItemGroup>
