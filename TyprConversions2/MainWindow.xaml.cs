@@ -161,7 +161,9 @@ namespace TyprConversions2
         private void RaiLINQ3()
         {
             int inputInt = 0;
-            int numCount = 0;
+            int numCount1 = 0;
+            int numCount2 = 0;
+            int numCount3 = 0;
 
             var inputText = InputTexBox.Text;
             try
@@ -180,18 +182,24 @@ namespace TyprConversions2
             ResTexBox.Text = "";
             foreach (int num in res)
             {
-                numCount += 1;
+                numCount1 += 1;
             }
             foreach (int num in res2)
             {
-                numCount += 1;
+                numCount2 += 1;
             }
             foreach (int num in res3)
             {
-                numCount += 1;
+                numCount3 += 1;
             }
 
-            ResTexBox.Text = "Number of Occurrences in lists: " + numCount;
+            ResTexBox.Text += "Number of Occurrences in list 1: " + numCount1;
+            ResTexBox.Text += "\r\n";
+            ResTexBox.Text += "Number of Occurrences in list 2: " + numCount2;
+            ResTexBox.Text += "\r\n";
+            ResTexBox.Text += "Number of Occurrences in list 3: " + numCount3;
+            ResTexBox.Text += "\r\n";
+            ResTexBox.Text += "Number of Occurrences in all lists: " + (numCount1 + numCount2 + numCount3);
         }
 
         #region Clicks
