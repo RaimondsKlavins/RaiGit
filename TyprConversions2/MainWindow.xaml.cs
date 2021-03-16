@@ -24,7 +24,8 @@ namespace TyprConversions2
         #region Variables
         StringBuilder myStringBuilder = new StringBuilder();
         int[] numList = { 1, 2, 3, 10, 20, 30, 40, 100, 1000 };
-        int[] numList2 = { 3, 5, 7, 4, 34, 54, 345, 3478, 234 };
+        int[] numList2 = { 3, 5, 7, 5, 34, 54, 345, 3478, 234 };
+        int[] numList3 = { 3, 2, 7, 5, 1, 54, 10, 3478, 234, 3, 5, 100, 30, 34, 10, 345, 3478, 1000 };
         #endregion
 
         private void Convert()
@@ -160,6 +161,7 @@ namespace TyprConversions2
         private void RaiLINQ3()
         {
             int inputInt = 0;
+            int numCount = 0;
 
             var inputText = InputTexBox.Text;
             try
@@ -171,14 +173,25 @@ namespace TyprConversions2
                 ResTexBox.Text = "ERROR : " + ex.Message;
             }
 
-            var res = numList.Where(n => (n * 2) > inputInt);
+            var res = numList.Where(n => n == inputInt);
+            var res2 = numList2.Where(n => n == inputInt);
+            var res3 = numList3.Where(n => n == inputInt);
 
             ResTexBox.Text = "";
             foreach (int num in res)
             {
-                ResTexBox.Text += num;
-                ResTexBox.Text += "\r\n";
+                numCount += 1;
             }
+            foreach (int num in res2)
+            {
+                numCount += 1;
+            }
+            foreach (int num in res3)
+            {
+                numCount += 1;
+            }
+
+            ResTexBox.Text = "Number of Occurrences in lists: " + numCount;
         }
 
         #region Clicks
