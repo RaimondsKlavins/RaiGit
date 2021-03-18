@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using Serilog;
 using Serilog.Sinks.File;
 using System.IO;
+using TyprConversions2.Classes;
 
 namespace TyprConversions2
 {
@@ -82,6 +83,7 @@ namespace TyprConversions2
 
             ResTexBox.Text = myStringBuilder.ToString();
         }
+
         private void RaiLog()
         {
             //string[] logLines = File.ReadAllLines(@"Logs\Log.txt");
