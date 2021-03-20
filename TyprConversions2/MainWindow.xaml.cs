@@ -27,6 +27,7 @@ namespace TyprConversions2
         int[] numList = { 1, 2, 3, 10, 20, 30, 40, 100, 1000 };
         int[] numList2 = { 3, 5, 7, 5, 34, 54, 345, 3478, 234 };
         int[] numList3 = { 3, 2, 7, 5, 1, 54, 10, 3478, 234, 3, 5, 100, 30, 34, 10, 345, 3478, 1000 };
+        string[] stringList = { "fgutfmftua","fm6ftmfma","mf78g78ga","bgdhrudjnft6a","sn5a","s5n64s56a","eea","a","6en7567na","4564564564a","foigdhfoi oidhfioghdiaof oid oidfo","234ewa" };
         #endregion
 
         private void Convert()
@@ -117,22 +118,22 @@ namespace TyprConversions2
             try
             {
                 inputInt = int.Parse(inputText);
+
+                var res =
+                    from num in numList
+                    where num > inputInt
+                    select num;
+
+                ResTexBox.Text = "";
+                foreach (int num in res)
+                {
+                    ResTexBox.Text += num;
+                    ResTexBox.Text += "\r\n";
+                }
             }
             catch (Exception ex)
             {
                 ResTexBox.Text = "ERROR : " + ex.Message;
-            }
-
-            var res =
-                from num in numList
-                where num > inputInt
-                select num;
-
-            ResTexBox.Text = "";
-            foreach (int num in res)
-            {
-                ResTexBox.Text += num;
-                ResTexBox.Text += "\r\n";
             }
         }
 
@@ -144,19 +145,19 @@ namespace TyprConversions2
             try
             {
                 inputInt = int.Parse(inputText);
+
+                var res = numList.Where(n => n > inputInt);
+
+                ResTexBox.Text = "";
+                foreach (int num in res)
+                {
+                    ResTexBox.Text += num;
+                    ResTexBox.Text += "\r\n";
+                }
             }
             catch (Exception ex)
             {
                 ResTexBox.Text = "ERROR : " + ex.Message;
-            }
-
-            var res = numList.Where(n => n > inputInt);
-
-            ResTexBox.Text = "";
-            foreach (int num in res)
-            {
-                ResTexBox.Text += num;
-                ResTexBox.Text += "\r\n";
             }
         }
 
@@ -171,37 +172,90 @@ namespace TyprConversions2
             try
             {
                 inputInt = int.Parse(inputText);
+
+                var res = numList.Where(n => n == inputInt);
+                var res2 = numList2.Where(n => n == inputInt);
+                var res3 = numList3.Where(n => n == inputInt);
+
+                ResTexBox.Text = "";
+                foreach (int num in res)
+                {
+                    numCount1 += 1;
+                }
+                foreach (int num in res2)
+                {
+                    numCount2 += 1;
+                }
+                foreach (int num in res3)
+                {
+                    numCount3 += 1;
+                }
+
+                ResTexBox.Text += "Number of Occurrences in list 1: " + numCount1;
+                ResTexBox.Text += "\r\n";
+                ResTexBox.Text += "Number of Occurrences in list 2: " + numCount2;
+                ResTexBox.Text += "\r\n";
+                ResTexBox.Text += "Number of Occurrences in list 3: " + numCount3;
+                ResTexBox.Text += "\r\n";
+                ResTexBox.Text += "Number of Occurrences in all lists: " + (numCount1 + numCount2 + numCount3);
             }
             catch (Exception ex)
             {
                 ResTexBox.Text = "ERROR : " + ex.Message;
             }
+        }
 
-            var res = numList.Where(n => n == inputInt);
-            var res2 = numList2.Where(n => n == inputInt);
-            var res3 = numList3.Where(n => n == inputInt);
+        private void RaiLINQ4()
+        {
+            int inputInt = 0;
+
+            var inputText = InputTexBox.Text;
+            try
+            {
+                inputInt = int.Parse(inputText);
+
+                var res = stringList.Where(s => s.Length > inputInt);
+
+                ResTexBox.Text = "";
+                foreach (string str in res)
+                {
+                    ResTexBox.Text += str;
+                    ResTexBox.Text += "\r\n";
+                }
+            }
+            catch (Exception ex)
+            {
+                ResTexBox.Text = "ERROR : " + ex.Message;
+            }
+        }
+
+        private void RaiLINQ5()
+        {
+            var inputText = InputTexBox.Text;
+
+            var res = stringList.Where(s => s.Contains(inputText));
+            var res2 = stringList.All(s => s.Contains(inputText));
 
             ResTexBox.Text = "";
-            foreach (int num in res)
-            {
-                numCount1 += 1;
-            }
-            foreach (int num in res2)
-            {
-                numCount2 += 1;
-            }
-            foreach (int num in res3)
-            {
-                numCount3 += 1;
-            }
+            //bool res = stringList.All(s => s.Contains(inputText)) ? ResTexBox.Text += "Contains input string" : ResTexBox.Text += "Does not contain input string";
+            //if (res.Count !== 0) Error given by this for some reason
+            //{
+            //    ResTexBox.Text += "Do contain input string";
+            //}
+            //else
+            //{
+            //    ResTexBox.Text += "Do not contain input string";
+            //}
+            //ResTexBox.Text += "\r\n";
 
-            ResTexBox.Text += "Number of Occurrences in list 1: " + numCount1;
-            ResTexBox.Text += "\r\n";
-            ResTexBox.Text += "Number of Occurrences in list 2: " + numCount2;
-            ResTexBox.Text += "\r\n";
-            ResTexBox.Text += "Number of Occurrences in list 3: " + numCount3;
-            ResTexBox.Text += "\r\n";
-            ResTexBox.Text += "Number of Occurrences in all lists: " + (numCount1 + numCount2 + numCount3);
+            if (res2)
+            {
+                ResTexBox.Text += "All contain input string";
+            }
+            else
+            {
+                ResTexBox.Text += "All do not contain input string";
+            }
         }
 
         #region Clicks
@@ -233,6 +287,16 @@ namespace TyprConversions2
         private void LINQ3Button_Click(object sender, RoutedEventArgs e)
         {
             RaiLINQ3();
+        }
+
+        private void LINQ4Button_Click(object sender, RoutedEventArgs e)
+        {
+            RaiLINQ4();
+        }
+
+        private void LINQ5Button_Click(object sender, RoutedEventArgs e)
+        {
+            RaiLINQ5();
         }
         #endregion
 
