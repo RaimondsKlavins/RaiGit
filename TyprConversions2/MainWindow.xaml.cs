@@ -28,6 +28,23 @@ namespace TyprConversions2
         int[] numList2 = { 3, 5, 7, 5, 34, 54, 345, 3478, 234 };
         int[] numList3 = { 3, 2, 7, 5, 1, 54, 10, 3478, 234, 3, 5, 100, 30, 34, 10, 345, 3478, 1000 };
         string[] stringList = { "fgutfmftua","fm6ftmfma","mf78g78ga","bgdhrudjnft6a","sn5a","s5n64s56a","eea","a","6en7567na","4564564564a","foigdhfoi oidhfioghdiaof oid oidfo","234ewa" };
+
+        int[] ints = { 1, 2, 4, 8, 4, 2, 1 };
+        int[] filter = { 1, 1, 2, 3, 5, 8 };
+        List<string> strs = new List<string> { "first", "second", "third" };
+        int[][] arrOfArr = {
+                new[] {1, 2, 3},
+                new[] {4},
+                new[] {5, 6, 7, 8},
+                new[] {12, 14}
+            };
+        string resStr = "";
+        int resInt = 0;
+        bool boolRes = false;
+        IEnumerable<int> enumInt = null;
+        IEnumerable<string> enumStr = null;
+        int[] raiSingleInt = { 5 };
+
         #endregion
 
         private void Convert()
@@ -258,6 +275,139 @@ namespace TyprConversions2
             }
         }
 
+        private void LINQTest()
+        {
+            ResTexBox.Text = "";
+            resInt = ints.First();
+            ResTexBox.Text += ("resInt = ints.First(): " + resInt);
+            ResTexBox.Text += "\r\n";
+            resInt = ints.First(x => x > 1);
+            ResTexBox.Text += ("resInt = ints.First(x => x > 1): " + resInt);
+            ResTexBox.Text += "\r\n";
+            resInt = ints.Last();
+            ResTexBox.Text += ("resInt = ints.Last(): " + resInt);
+            ResTexBox.Text += "\r\n";
+            resInt = ints.Max();
+            ResTexBox.Text += ("resInt = ints.Max(): " + resInt);
+            ResTexBox.Text += "\r\n";
+            resInt = ints.Min();
+            ResTexBox.Text += ("resInt = ints.Min(): " + resInt);
+            ResTexBox.Text += "\r\n";
+            resInt = ints.Last(x => x > 4);
+            ResTexBox.Text += ("resInt = ints.Last(x => x > 4): " + resInt);
+            ResTexBox.Text += "\r\n";
+            resInt = ints.ElementAt(2);
+            ResTexBox.Text += ("resInt = ints.ElementAt(2): " + resInt);
+            ResTexBox.Text += "\r\n";
+            resInt = raiSingleInt.Single();
+            ResTexBox.Text += ("resInt = raiSingleInt.Single(): " + resInt);
+            ResTexBox.Text += "\r\n";
+            resInt = ints.Single(x => x > 4);
+            ResTexBox.Text += ("resInt = ints.Single(x => x > 4): " + resInt);
+            ResTexBox.Text += "\r\n";
+            resInt = ints.ElementAtOrDefault(8);
+            ResTexBox.Text += ("resInt = ints.ElementAtOrDefault(8): " + resInt);
+            ResTexBox.Text += "\r\n";
+            resInt = ints.Count();
+            ResTexBox.Text += ("resInt = ints.Count(): " + resInt);
+            ResTexBox.Text += "\r\n";
+            resInt = ints.Count(x => x > 1);
+            ResTexBox.Text += ("resInt = ints.Count(x => x > 1): " + resInt);
+            ResTexBox.Text += "\r\n";
+            resInt = ints.Aggregate((a, b) => a + b);
+            ResTexBox.Text += ("resInt = ints.Aggregate((a, b) => a + b): " + resInt);
+            ResTexBox.Text += "\r\n";
+            resInt = ints.Sum();//realisation of  Aggregate
+            ResTexBox.Text += ("resInt = ints.Sum(): " + resInt);
+            ResTexBox.Text += "\r\n";
+            ResTexBox.Text += "\r\n";
+
+            double dbRes = ints.Average();
+            ResTexBox.Text += ("dbRes = ints.Average(): " + dbRes);
+            ResTexBox.Text += "\r\n";
+            ResTexBox.Text += "\r\n";
+
+
+            boolRes = ints.Any(x => x < 8);  // If Exists with conditions
+            ResTexBox.Text += ("boolRes = ints.Any(x => x < 8): " + boolRes);
+            ResTexBox.Text += "\r\n";
+            boolRes = ints.All(x => x >= 1); // All members fit condition
+            ResTexBox.Text += ("boolRes = ints.All(x => x >= 1): " + boolRes);
+            ResTexBox.Text += "\r\n";
+            ResTexBox.Text += "\r\n";
+
+            enumInt = ints.Take(3);
+            ResTexBox.Text += ("enumInt = ints.Take(3): " + enumInt);
+            ResTexBox.Text += "\r\n";
+            enumInt = ints.TakeWhile(x => x != 4);//1,2
+            ResTexBox.Text += ("enumInt = ints.TakeWhile(x => x != 4): " + enumInt);
+            ResTexBox.Text += "\r\n";
+            enumInt = ints.Skip(3);
+            ResTexBox.Text += ("enumInt = ints.Skip(3): " + enumInt);
+            ResTexBox.Text += "\r\n";
+            enumInt = ints.SkipWhile(x => x != 4);//4,8,4,2,1
+            ResTexBox.Text += ("enumInt = ints.SkipWhile(x => x != 4): " + enumInt);
+            ResTexBox.Text += "\r\n";
+            enumInt = ints.Distinct();// not repeated
+            ResTexBox.Text += ("enumInt = ints.Distinct(): " + enumInt);
+            ResTexBox.Text += "\r\n";
+            enumInt = ints.Where(y => y == 2 || y == 4);
+            ResTexBox.Text += ("enumInt = ints.Where(y => y == 2 || y == 4): " + enumInt);
+            ResTexBox.Text += "\r\n";
+            enumInt = ints.OrderBy(x => x);
+            ResTexBox.Text += ("enumInt = ints.OrderBy(x => x): " + enumInt);
+            ResTexBox.Text += "\r\n";
+            enumInt = ints.OrderByDescending(x => x);
+            ResTexBox.Text += ("enumInt = ints.OrderByDescending(x => x): " + enumInt);
+            ResTexBox.Text += "\r\n";
+            enumInt = ints.Cast<int>(); // match type 
+            ResTexBox.Text += ("enumInt = ints.Cast<int>(): " + enumInt);
+            ResTexBox.Text += "\r\n";
+            enumInt = ints.Intersect(filter); //  1,2,8
+            ResTexBox.Text += ("enumInt = ints.Intersect(filter): " + enumInt);
+            ResTexBox.Text += "\r\n";
+            enumInt = filter.ToArray().Reverse();
+            ResTexBox.Text += ("enumInt = filter.ToArray().Reverse(): " + enumInt);
+            ResTexBox.Text += "\r\n";
+            enumInt = ints.Select(x => x);
+            ResTexBox.Text += ("enumInt = ints.Select(x => x): " + enumInt);
+            ResTexBox.Text += "\r\n";
+            enumInt = strs.Select(x => x.Length);
+            ResTexBox.Text += ("enumInt = strs.Select(x => x.Length): " + enumInt);
+            ResTexBox.Text += "\r\n";
+            enumInt = arrOfArr.SelectMany(x => x);
+            ResTexBox.Text += ("enumInt = arrOfArr.SelectMany(x => x): " + enumInt);
+            ResTexBox.Text += "\r\n";
+            ResTexBox.Text += "\r\n";
+
+            resStr = strs.FirstOrDefault(x => x.Length > 6);
+            ResTexBox.Text += ("resStr = strs.FirstOrDefault(x => x.Length > 6): " + resStr);
+            ResTexBox.Text += "\r\n";
+            ResTexBox.Text += "\r\n";
+
+            enumStr = strs.Select(x => x.ToUpper());
+            ResTexBox.Text += ("enumStr = strs.Select(x => x.ToUpper()): " + enumStr);
+            ResTexBox.Text += "\r\n";
+            enumStr = strs.Where(x => x.Length > 3);
+            ResTexBox.Text += ("enumStr = strs.Where(x => x.Length > 3): " + enumStr);
+            ResTexBox.Text += "\r\n";
+            ResTexBox.Text += "\r\n";
+
+            enumStr =
+                from x in strs        // specify the data source and take all the elements (they will be under the alias X) 
+                where x.Length > 3    // selection condition 
+                select x;             // what we will return to result 
+            ResTexBox.Text += ("enumStr = x.Length > 3 SQL-like statement: " + enumStr);
+            ResTexBox.Text += "\r\n";
+
+            var result = arrOfArr
+                .Select(x => x + ":" + x.Length) // one:3,two:3,three:5,four:4
+                .Skip(2)
+                .Sum(x => x.Length);
+            ResTexBox.Text += ("result = arrOfArr... : " + result);
+            ResTexBox.Text += "\r\n";
+        }
+
         #region Clicks
         private void ConvertButton_Click(object sender, RoutedEventArgs e)
         {
@@ -298,6 +448,10 @@ namespace TyprConversions2
         {
             RaiLINQ5();
         }
+        private void LINQTestButton_Click(object sender, RoutedEventArgs e)
+        {
+            LINQTest();
+        }        
         #endregion
 
         public MainWindow()

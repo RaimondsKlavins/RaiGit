@@ -44,6 +44,7 @@
             <Button Name="LINQButton3" Content="LINQ 3"  Width="100"  Height="24" Click="LINQ3Button_Click"/>
             <Button Name="LINQButton4" Content="LINQ 4"  Width="100"  Height="24" Click="LINQ4Button_Click"/>
             <Button Name="LINQButton5" Content="LINQ 5"  Width="100"  Height="24" Click="LINQ5Button_Click"/>
+            <Button Name="LINQTestButton" Content="LINQTest"  Width="100"  Height="24" Click="LINQTestButton_Click"/>
         </StackPanel>
 
     </Grid>
