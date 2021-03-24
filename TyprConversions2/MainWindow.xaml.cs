@@ -127,6 +127,24 @@ namespace TyprConversions2
             }
         }
 
+        private void RaiIntListOutputter(IEnumerable<int> intList)
+        {
+            foreach (int item in intList)
+            {
+                ResTexBox.Text += (item + " ");
+            }
+            ResTexBox.Text += "\r\n";
+        }
+
+        private void RaiStringListOutputter(IEnumerable<string> stringList)
+        {
+            foreach (string item in stringList)
+            {
+                ResTexBox.Text += (item + " ");
+            }
+            ResTexBox.Text += "\r\n";
+        }
+
         private void RaiLINQ1()
         {
             int inputInt = 0;
@@ -142,11 +160,12 @@ namespace TyprConversions2
                     select num;
 
                 ResTexBox.Text = "";
-                foreach (int num in res)
-                {
-                    ResTexBox.Text += num;
-                    ResTexBox.Text += "\r\n";
-                }
+                RaiIntListOutputter(res);
+                //foreach (int num in res)
+                //{
+                //    ResTexBox.Text += num;
+                //    ResTexBox.Text += "\r\n";
+                //}
             }
             catch (Exception ex)
             {
@@ -166,11 +185,12 @@ namespace TyprConversions2
                 var res = numList.Where(n => n > inputInt);
 
                 ResTexBox.Text = "";
-                foreach (int num in res)
-                {
-                    ResTexBox.Text += num;
-                    ResTexBox.Text += "\r\n";
-                }
+                RaiIntListOutputter(res);
+                //foreach (int num in res)
+                //{
+                //    ResTexBox.Text += num;
+                //    ResTexBox.Text += "\r\n";
+                //}
             }
             catch (Exception ex)
             {
@@ -337,47 +357,47 @@ namespace TyprConversions2
             ResTexBox.Text += "\r\n";
 
             enumInt = ints.Take(3);
-            ResTexBox.Text += ("enumInt = ints.Take(3): " + enumInt);
-            ResTexBox.Text += "\r\n";
+            ResTexBox.Text += ("enumInt = ints.Take(3): ");
+            RaiIntListOutputter(enumInt);
             enumInt = ints.TakeWhile(x => x != 4);//1,2
-            ResTexBox.Text += ("enumInt = ints.TakeWhile(x => x != 4): " + enumInt);
-            ResTexBox.Text += "\r\n";
+            ResTexBox.Text += ("enumInt = ints.TakeWhile(x => x != 4): ");
+            RaiIntListOutputter(enumInt);
             enumInt = ints.Skip(3);
-            ResTexBox.Text += ("enumInt = ints.Skip(3): " + enumInt);
-            ResTexBox.Text += "\r\n";
+            ResTexBox.Text += ("enumInt = ints.Skip(3): ");
+            RaiIntListOutputter(enumInt);
             enumInt = ints.SkipWhile(x => x != 4);//4,8,4,2,1
-            ResTexBox.Text += ("enumInt = ints.SkipWhile(x => x != 4): " + enumInt);
-            ResTexBox.Text += "\r\n";
+            ResTexBox.Text += ("enumInt = ints.SkipWhile(x => x != 4): ");
+            RaiIntListOutputter(enumInt);
             enumInt = ints.Distinct();// not repeated
-            ResTexBox.Text += ("enumInt = ints.Distinct(): " + enumInt);
-            ResTexBox.Text += "\r\n";
+            ResTexBox.Text += ("enumInt = ints.Distinct(): ");
+            RaiIntListOutputter(enumInt);
             enumInt = ints.Where(y => y == 2 || y == 4);
-            ResTexBox.Text += ("enumInt = ints.Where(y => y == 2 || y == 4): " + enumInt);
-            ResTexBox.Text += "\r\n";
+            ResTexBox.Text += ("enumInt = ints.Where(y => y == 2 || y == 4): ");
+            RaiIntListOutputter(enumInt);
             enumInt = ints.OrderBy(x => x);
-            ResTexBox.Text += ("enumInt = ints.OrderBy(x => x): " + enumInt);
-            ResTexBox.Text += "\r\n";
+            ResTexBox.Text += ("enumInt = ints.OrderBy(x => x): ");
+            RaiIntListOutputter(enumInt);
             enumInt = ints.OrderByDescending(x => x);
-            ResTexBox.Text += ("enumInt = ints.OrderByDescending(x => x): " + enumInt);
-            ResTexBox.Text += "\r\n";
+            ResTexBox.Text += ("enumInt = ints.OrderByDescending(x => x): ");
+            RaiIntListOutputter(enumInt);
             enumInt = ints.Cast<int>(); // match type 
-            ResTexBox.Text += ("enumInt = ints.Cast<int>(): " + enumInt);
-            ResTexBox.Text += "\r\n";
+            ResTexBox.Text += ("enumInt = ints.Cast<int>(): ");
+            RaiIntListOutputter(enumInt);
             enumInt = ints.Intersect(filter); //  1,2,8
-            ResTexBox.Text += ("enumInt = ints.Intersect(filter): " + enumInt);
-            ResTexBox.Text += "\r\n";
+            ResTexBox.Text += ("enumInt = ints.Intersect(filter): ");
+            RaiIntListOutputter(enumInt);
             enumInt = filter.ToArray().Reverse();
-            ResTexBox.Text += ("enumInt = filter.ToArray().Reverse(): " + enumInt);
-            ResTexBox.Text += "\r\n";
+            ResTexBox.Text += ("enumInt = filter.ToArray().Reverse(): ");
+            RaiIntListOutputter(enumInt);
             enumInt = ints.Select(x => x);
-            ResTexBox.Text += ("enumInt = ints.Select(x => x): " + enumInt);
-            ResTexBox.Text += "\r\n";
+            ResTexBox.Text += ("enumInt = ints.Select(x => x): ");
+            RaiIntListOutputter(enumInt);
             enumInt = strs.Select(x => x.Length);
-            ResTexBox.Text += ("enumInt = strs.Select(x => x.Length): " + enumInt);
-            ResTexBox.Text += "\r\n";
+            ResTexBox.Text += ("enumInt = strs.Select(x => x.Length): ");
+            RaiIntListOutputter(enumInt);
             enumInt = arrOfArr.SelectMany(x => x);
-            ResTexBox.Text += ("enumInt = arrOfArr.SelectMany(x => x): " + enumInt);
-            ResTexBox.Text += "\r\n";
+            ResTexBox.Text += ("enumInt = arrOfArr.SelectMany(x => x): ");
+            RaiIntListOutputter(enumInt);
             ResTexBox.Text += "\r\n";
 
             resStr = strs.FirstOrDefault(x => x.Length > 6);
@@ -386,19 +406,19 @@ namespace TyprConversions2
             ResTexBox.Text += "\r\n";
 
             enumStr = strs.Select(x => x.ToUpper());
-            ResTexBox.Text += ("enumStr = strs.Select(x => x.ToUpper()): " + enumStr);
-            ResTexBox.Text += "\r\n";
+            ResTexBox.Text += ("enumStr = strs.Select(x => x.ToUpper()): ");
+            RaiStringListOutputter(enumStr);
             enumStr = strs.Where(x => x.Length > 3);
-            ResTexBox.Text += ("enumStr = strs.Where(x => x.Length > 3): " + enumStr);
-            ResTexBox.Text += "\r\n";
+            ResTexBox.Text += ("enumStr = strs.Where(x => x.Length > 3): ");
+            RaiStringListOutputter(enumStr);
             ResTexBox.Text += "\r\n";
 
             enumStr =
                 from x in strs        // specify the data source and take all the elements (they will be under the alias X) 
                 where x.Length > 3    // selection condition 
                 select x;             // what we will return to result 
-            ResTexBox.Text += ("enumStr = x.Length > 3 SQL-like statement: " + enumStr);
-            ResTexBox.Text += "\r\n";
+            ResTexBox.Text += ("enumStr = x.Length > 3 SQL-like statement: ");
+            RaiStringListOutputter(enumStr);
 
             var result = arrOfArr
                 .Select(x => x + ":" + x.Length) // one:3,two:3,three:5,four:4
