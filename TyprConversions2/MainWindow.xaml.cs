@@ -16,6 +16,7 @@ using Serilog;
 using Serilog.Sinks.File;
 using System.IO;
 using TyprConversions2.Classes;
+using TyprConversions2.Controls;
 
 namespace TyprConversions2
 {
