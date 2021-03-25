@@ -4,8 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TyprConversions2"
+        xmlns:uc="clr-namespace:TyprConversions2.Controls"
         mc:Ignorable="d" Background="Goldenrod"
-        Title="MainWindow" Height="450" Width="1000">
+        Title="RaiGit Program" Height="450" Width="1000">
     <Grid  VerticalAlignment="Top">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="120"/>
@@ -49,8 +50,8 @@
         </StackPanel>
 
         <Label Content="User Controls" Grid.Row="1"  Grid.Column="3" VerticalAlignment="Center"  HorizontalAlignment="Center"/>
-        <StackPanel Grid.Row="2"  Grid.Column="3" VerticalAlignment="Center" Margin="0,25">
-            
+        <StackPanel Grid.Row="2"  Grid.Column="3" VerticalAlignment="Top" Margin="0,25">
+            <uc:RaiControl x:Name="RaiControl1"/>
         </StackPanel>
     </Grid>
 </Window>

@@ -22,7 +22,21 @@ namespace TyprConversions2.Controls
     {
         public RaiControl()
         {
+            FontFamily = new FontFamily("Segoe UI Symbol");
+            UpControlButton.Content = "\uE0E4";
+            DownControlButton.Content = "\uE0E5";
+
             InitializeComponent();
+        }
+
+        private void DownControlButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void UpControlButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

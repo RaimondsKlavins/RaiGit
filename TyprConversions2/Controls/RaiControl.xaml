@@ -8,9 +8,14 @@
              Height="25" Width="150" Background="DarkSlateBlue">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="44*"/>
-            <ColumnDefinition Width="31*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
+        <TextBlock Name="ControlTextBlock" Text="" Grid.Column="0" Margin="2" Background="WhiteSmoke"/>
+        <Button Name="UpControlButton" Grid.Column="1" Content="&#xE0E4;" Padding="0,-9,0,0" FontFamily="Segoe UI Symbol" FontSize="26" Click="UpControlButton_Click"/>
+        <Button Name="DownControlButton" Grid.Column="2" Content="&#xE0E5;" Padding="0,-8,0,0" FontFamily="Segoe UI Symbol" FontSize="26" Click="DownControlButton_Click"/>
     </Grid>
+
 </UserControl>
