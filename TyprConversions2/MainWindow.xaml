@@ -47,11 +47,12 @@
             <Button Name="LINQButton4" Content="LINQ 4"  Width="100"  Height="24" Click="LINQ4Button_Click"/>
             <Button Name="LINQButton5" Content="LINQ 5"  Width="100"  Height="24" Click="LINQ5Button_Click"/>
             <Button Name="LINQTestButton" Content="LINQTest"  Width="100"  Height="24" Click="LINQTestButton_Click"/>
+            <Button Name="LINQButton6" Content="LINQ 6"  Width="100"  Height="24" Click="LINQ6Button_Click"/>
         </StackPanel>
 
         <Label Content="User Controls" Grid.Row="1"  Grid.Column="3" VerticalAlignment="Center"  HorizontalAlignment="Center"/>
-        <StackPanel Grid.Row="2"  Grid.Column="3" VerticalAlignment="Top" Margin="0,25">
-            <uc:RaiControl x:Name="RaiControl1"/>
+        <StackPanel Grid.Row="2"  Grid.Column="3" VerticalAlignment="Top" Margin="10,0" Background="DarkSlateBlue">
+            <uc:RaiControl/>
         </StackPanel>
     </Grid>
 </Window>

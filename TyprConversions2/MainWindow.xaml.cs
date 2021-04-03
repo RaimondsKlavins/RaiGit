@@ -429,6 +429,11 @@ namespace TyprConversions2
             ResTexBox.Text += "\r\n";
         }
 
+        private void RaiLINQ6()
+        {
+
+        }
+
         #region Clicks
         private void ConvertButton_Click(object sender, RoutedEventArgs e)
         {
@@ -472,7 +477,12 @@ namespace TyprConversions2
         private void LINQTestButton_Click(object sender, RoutedEventArgs e)
         {
             LINQTest();
-        }        
+        }
+
+        private void LINQ6Button_Click(object sender, RoutedEventArgs e)
+        {
+            RaiLINQ6();
+        }
         #endregion
 
         public MainWindow()

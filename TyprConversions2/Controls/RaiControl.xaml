@@ -13,7 +13,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Name="ControlTextBlock" Text="" Grid.Column="0" Margin="2" Background="WhiteSmoke"/>
+        <TextBlock Name="ControlTextBlock" Text="" Grid.Column="0" Margin="1" Background="WhiteSmoke"/>
         <Button Name="UpControlButton" Grid.Column="1" Content="&#xE0E4;" Padding="0,-9,0,0" FontFamily="Segoe UI Symbol" FontSize="26" Click="UpControlButton_Click"/>
         <Button Name="DownControlButton" Grid.Column="2" Content="&#xE0E5;" Padding="0,-8,0,0" FontFamily="Segoe UI Symbol" FontSize="26" Click="DownControlButton_Click"/>
     </Grid>
