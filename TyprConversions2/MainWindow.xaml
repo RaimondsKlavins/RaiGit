@@ -48,11 +48,13 @@
             <Button Name="LINQButton5" Content="LINQ 5"  Width="100"  Height="24" Click="LINQ5Button_Click"/>
             <Button Name="LINQTestButton" Content="LINQTest"  Width="100"  Height="24" Click="LINQTestButton_Click"/>
             <Button Name="LINQButton6" Content="LINQ 6"  Width="100"  Height="24" Click="LINQ6Button_Click"/>
+            <Button Name="FromFileButton1" Content="From File"  Width="100"  Height="24" Click="FromFileButton1_Click"/>
+            <Button Name="ToFileButton1" Content="To File"  Width="100"  Height="24" Click="ToFileButton1_Click"/>
         </StackPanel>
 
         <Label Content="User Controls" Grid.Row="1"  Grid.Column="3" VerticalAlignment="Center"  HorizontalAlignment="Center"/>
         <StackPanel Grid.Row="2"  Grid.Column="3" VerticalAlignment="Top" Margin="10,0" Background="DarkSlateBlue">
-            <uc:RaiControl/>
+            
         </StackPanel>
     </Grid>
 </Window>

@@ -46,6 +46,8 @@ namespace TyprConversions2
         IEnumerable<string> enumStr = null;
         int[] raiSingleInt = { 5 };
 
+        string FilePath = @"c:\ForFiles\RaiGitFile.txt";
+
         #endregion
 
         private void Convert()
@@ -433,6 +435,42 @@ namespace TyprConversions2
         {
 
         }
+        private void FromFile1()
+        {
+            if (File.Exists(FilePath))
+            {
+                using (StreamReader sr = File.OpenText(FilePath))
+                {
+                    string s;
+                    while ((s = sr.ReadLine()) != null)
+                    {
+                        ResTexBox.Text = s;
+                    }
+                }
+            }
+            else
+            {
+                ResTexBox.Text = "ERROR: File not found";
+            }
+
+        }
+        private void ToFile1()
+        {
+            if (!File.Exists(FilePath))
+            {
+                using (StreamWriter sw = File.CreateText(FilePath))
+                {
+                    sw.WriteLine(InputTexBox.Text);
+                }
+            }
+            else
+            {
+                using (StreamWriter sw = File.CreateText(FilePath))
+                {
+                    sw.WriteLine(InputTexBox.Text);
+                }
+            }
+        }
 
         #region Clicks
         private void ConvertButton_Click(object sender, RoutedEventArgs e)
@@ -482,6 +520,16 @@ namespace TyprConversions2
         private void LINQ6Button_Click(object sender, RoutedEventArgs e)
         {
             RaiLINQ6();
+        }
+
+        private void FromFileButton1_Click(object sender, RoutedEventArgs e)
+        {
+            FromFile1();
+        }
+
+        private void ToFileButton1_Click(object sender, RoutedEventArgs e)
+        {
+            ToFile1();
         }
         #endregion
 
