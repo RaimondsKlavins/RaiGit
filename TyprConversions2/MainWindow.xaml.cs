@@ -48,6 +48,8 @@ namespace TyprConversions2
 
         string FilePath = @"c:\ForFiles\RaiGitFile.txt";
 
+        RaiControl raiControl1;
+
         #endregion
 
         private void Convert()
@@ -471,6 +473,15 @@ namespace TyprConversions2
                 }
             }
         }
+        private void AddRaiControl()
+        {
+            if (raiControl1 == null)
+            {
+                raiControl1 = new RaiControl();
+            }
+
+            UserControls.Content = raiControl1;
+        }
 
         #region Clicks
         private void ConvertButton_Click(object sender, RoutedEventArgs e)
@@ -530,6 +541,11 @@ namespace TyprConversions2
         private void ToFileButton1_Click(object sender, RoutedEventArgs e)
         {
             ToFile1();
+        }
+
+        private void AddRaiControlButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddRaiControl();
         }
         #endregion
 
