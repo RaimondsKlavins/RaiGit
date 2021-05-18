@@ -456,7 +456,7 @@ namespace TyprConversions2
             }
 
         }
-        private void ToFile1()
+        private void ToFile1()//Overwrites file everytime a line is entered
         {
             if (!File.Exists(FilePath))
             {
