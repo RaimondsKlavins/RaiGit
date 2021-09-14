@@ -462,7 +462,7 @@ namespace TyprConversions2
             {
                 using (StreamWriter sw = File.CreateText(FilePath))
                 {
-                    sw.WriteLine(sw.);
+                    sw.WriteLine(sw);
                     sw.WriteLine(InputTexBox.Text);
                 }
             }
